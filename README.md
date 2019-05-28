@@ -71,3 +71,5 @@ B. POD 2 - C7200-ADVIPSERVICESK9-M Ver 15.2(4)S5
 * a. Interface Port: **Fa1/0**
 * b. Interface Address: **172.16.0.1/24**
 
+![VTI - Tunnel to host](https://user-images.githubusercontent.com/51066040/58454957-6489ab00-8163-11e9-8244-97ba1816f5f5.png)
+
