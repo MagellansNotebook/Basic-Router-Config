@@ -1,0 +1,149 @@
+Current configuration : 2411 bytes
+!
+! Last configuration change at 22:34:50 UTC Mon Apr 18 2016
+!
+version 15.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+!
+hostname POD-2
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+ip cef
+!
+ip vrf LINK
+ rd 2.2.2.2:1
+!
+!
+!
+!
+!
+!
+no ipv6 cef
+!
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip vrf forwarding LINK
+ ip address 2.2.2.2 255.255.255.255
+!
+interface Loopback1
+ ip address 2.2.2.2 255.255.255.255
+!
+interface Tunnel100
+ ip vrf forwarding LINK
+ ip address 1.1.1.6 255.255.255.252
+ tunnel source 172.16.0.1
+ tunnel destination 192.168.1.1
+ tunnel vrf LINK
+!
+interface Tunnel200
+ ip address 1.1.1.6 255.255.255.252
+ tunnel source 192.168.1.2
+ tunnel destination 192.168.1.1
+!
+interface Ethernet0/0
+ no ip address
+ shutdown
+ duplex auto
+!
+interface GigabitEthernet0/0
+ no ip address
+ media-type gbic
+ speed 1000
+ duplex full
+ negotiation auto
+!
+interface GigabitEthernet0/0.10
+ encapsulation dot1Q 10
+ ip vrf forwarding LINK
+ ip address 192.168.1.2 255.255.255.252
+!
+interface GigabitEthernet0/0.20
+ encapsulation dot1Q 20
+ ip address 192.168.1.2 255.255.255.252
+!
+interface FastEthernet1/0
+ no ip address
+ duplex full
+!
+interface FastEthernet1/0.30
+ encapsulation dot1Q 30
+ ip vrf forwarding LINK
+ ip address 172.16.0.1 255.255.255.252
+!
+interface FastEthernet1/0.40
+ encapsulation dot1Q 40
+ ip address 172.16.0.1 255.255.255.252
+!
+router bgp 200
+ bgp router-id 2.2.2.2
+ bgp log-neighbor-changes
+ network 1.1.1.0 mask 255.255.255.0
+ network 2.2.2.0 mask 255.255.255.0
+ network 2.2.2.2 mask 255.255.255.255
+ timers bgp 5 20
+ neighbor 1.1.1.5 remote-as 100
+ neighbor 1.1.1.5 update-source Tunnel200
+ !
+ address-family ipv4 vrf LINK
+  bgp router-id 2.2.2.2
+  network 1.1.1.0 mask 255.255.255.0
+  network 2.2.2.0 mask 255.255.255.0
+  network 2.2.2.2 mask 255.255.255.255
+  neighbor 1.1.1.5 remote-as 100
+  neighbor 1.1.1.5 update-source Tunnel100
+  neighbor 1.1.1.5 activate
+ exit-address-family
+!
+ip forward-protocol nd
+!
+!
+no ip http server
+no ip http secure-server
+ip route 1.1.1.0 255.255.255.0 Null0
+ip route 1.1.1.5 255.255.255.255 192.168.1.1
+ip route 2.2.2.0 255.255.255.0 Null0
+ip route vrf LINK 1.1.1.5 255.255.255.255 192.168.1.1
+!
+!
+!
+!
+control-plane
+!
+!
+line con 0
+ stopbits 1
+line aux 0
+ stopbits 1
+line vty 0 4
+ login
+!
+!
+end
