@@ -201,6 +201,7 @@ C. CoreService - C7200-ADVIPSERVICESK9-M Ver 15.2(4)S5
 * b. rd: **172.16.0.2:1**
 * c. Static VRF: **LINK 192.168.1.1/32 172.16.0.1**
 
+![VRF - BGP Tunnel to Host](https://user-images.githubusercontent.com/51066040/58631405-c7c33b00-8325-11e9-995e-38e9bc3cddeb.png)
 
 
 
