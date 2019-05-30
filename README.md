@@ -3,27 +3,27 @@
 
 ## BGP
 
-A. POD 1 - C7200-ADVIPSERVICESK9-M Ver 15.2(4)S5
+**A. POD 1 - C7200-ADVIPSERVICESK9-M Ver 15.2(4)S5**
 
-(1) Router Details (WAN):
+**(1) Router Details (WAN):**
 * a. Name: **POD-1**
 * b. Interface Port: **Fa0/0 - Point-to-Point**
 * c. Ethernet Address: **192.168.1.1/30**
 * d. Loopback Address: **Loopback0 1.1.1.1/32**
 
-(2) Protocol:
+**(2) Protocol:**
 * a. Protocol: **BGP 100 - multihop 2 - Loopback0**
 * b. Static Link Address: **2.2.2.2/32 192.168.1.2**
 
-B. POD 2 - C7200-ADVIPSERVICESK9-M Ver 15.2(4)S5
+**B. POD 2 - C7200-ADVIPSERVICESK9-M Ver 15.2(4)S5**
 
-(1) Router Details (WAN):
+**(1) Router Details (WAN):**
 * a. Name: **POD-2**
 * b. Interface Port: **Fa0/0 - Point-to-Point**
 * c. Ethernet Address: **192.168.1.2/30**
 * d. Loopback Address: **2.2.2.2/32**
 
-(2) Protocol:
+**(2) Protocol:**
 * a. Protocol: **BGP 200 - multihop 2 - Loopback0**
 * b. Static Link Address: **1.1.1.1/32 192.168.1.1**
 
@@ -31,37 +31,37 @@ B. POD 2 - C7200-ADVIPSERVICESK9-M Ver 15.2(4)S5
 
 ## VTI
 
-A. POD 1 - C7200-ADVIPSERVICESK9-M Ver 15.2(4)S5
+**A. POD 1 - C7200-ADVIPSERVICESK9-M Ver 15.2(4)S5**
 
-(1) Router Details (WAN):
+**(1) Router Details (WAN):**
 * a. Name: **POD-1**
 * b. Interface Port: **Fa0/0 - Point-to-Point**
 * c. Ethernet Address: **192.168.1.1/30**
 * d. Loopback Address: **Loopback0 - 1.1.1.1/32**
 
-(2) Protocol:
+**(2) Protocol:**
 * a. Protocol: **BGP100**
 * b. Network: **1.1.1.0/24**
 * c. Remote-AS: **200**
 * d. Update-Source: **Tunnel200**
 * e. Static Link Address: **1.1.1.6/32 - 192.168.1.2**
 
-(3) Tunnel Details:
+**(3) Tunnel Details:**
 * a. Tunnel: **Tunnel200**
 * b. Tunnel IP Address: **1.1.1.5 255.255.255.252**
 * c. Source IP Address: **192.168.1.1**
 * d. Destination IP Address: **172.16.0.2**
 * e. Static Link Address: **172.16.0.2/32 192.168.1.2**
 
-B. POD 2 - C7200-ADVIPSERVICESK9-M Ver 15.2(4)S5
+**B. POD 2 - C7200-ADVIPSERVICESK9-M Ver 15.2(4)S5**
 
-(1) Router Details (WAN):
+**(1) Router Details (WAN):**
 * a. Name: **POD-2**
 * b. Interface Port: **Fa0/0 - Point-to-Point**
 * c. Ethernet Address: **192.168.1.2 255.255.255.252**
 * d. Loopback Address: **Loopback0 2.2.2.2/32**
 
-(2) Protocol:
+**(2) Protocol:**
 * a. Protocol: **BGP 200**
 * b. Network: **1.1.1.0/24**
 * c. Network: **2.2.2.0/24**
@@ -69,13 +69,13 @@ B. POD 2 - C7200-ADVIPSERVICESK9-M Ver 15.2(4)S5
 * e. Update-Source: **Tunnel100**
 * f. Static Link Address: **1.1.1.5/32 192.168.1.1**
 
-(3) Tunnel Details:
+**(3) Tunnel Details:**
 * a. Tunnel: **Tunnel100**
 * b. Tunnel IP Address: **1.1.1.6/30**
 * c. Source IP Address: **192.168.1.2**
 * d. Destination IP Address: **172.16.0.1**
 
-(4) LAN Details:
+**(4) LAN Details:**
 * a. Interface Port: **Fa1/0**
 * b. Interface Address: **172.16.0.1/24**
 
@@ -83,9 +83,9 @@ B. POD 2 - C7200-ADVIPSERVICESK9-M Ver 15.2(4)S5
 
 ## VRF
 
-A. POD 2 - C7200-ADVIPSERVICESK9-M Ver 15.2(4)S5
+**A. POD 2 - C7200-ADVIPSERVICESK9-M Ver 15.2(4)S5**
 
-(1) Router Details (WAN):
+**(1) Router Details (WAN):**
 * a. Name: **POD-1**
 * b. Interface Port: **G0/0**
 * c. Ethernet Address: **no ip address**
@@ -100,7 +100,7 @@ A. POD 2 - C7200-ADVIPSERVICESK9-M Ver 15.2(4)S5
 * l. Loopback Address: **Loopback0 1.1.1.1 255.255.255.255**
 * m. IP VRF Forwarding: **LINK**
 
-(2) Protocol:
+**(2) Protocol:**
 * a. Protocol: **BGP100**
 * b. Router-id: **1.1.1.1**
 * c. Network: **1.1.1.0/24**
@@ -110,13 +110,13 @@ A. POD 2 - C7200-ADVIPSERVICESK9-M Ver 15.2(4)S5
 * g. Update-Source: **1.1.1.6 Tunnel100**
 * h. Static Link: **1.1.1.6/32 192.168.1.2**
 
-(3) VRF Details:
+**(3) VRF Details:**
 * a. IP VRF: **LINK**
 * b. rd: **1.1.1.1:1**
 * c. Static VRF: **LINK 1.1.1.6/32 192.168.1.2**
 * d. Static VRF: **LINK 172.16.0.2/32 192.168.1.2**
 
-(4) Tunnel Details:
+**(4) Tunnel Details:**
 * a. Tunnel: **Tunnel100**
 * b. Tunnel IP Address: **1.1.1.5/30**
 * c. Source IP Address: **192.168.1.1**
@@ -128,9 +128,9 @@ A. POD 2 - C7200-ADVIPSERVICESK9-M Ver 15.2(4)S5
 * i. Destination IP Address: **172.16.0.2**
 * j. Tunnel VRF: **LINK**
 
-B. POD 2 - C7200-ADVIPSERVICESK9-M Ver 15.2(4)S5
+**B. POD 2 - C7200-ADVIPSERVICESK9-M Ver 15.2(4)S5**
 
-(1) Router Details (WAN):
+**(1) Router Details (WAN):**
 * a. Name: **POD-2**
 * b. Interface Port: **G0/0**
 * c. Ethernet Address: **no ip address**
@@ -145,7 +145,7 @@ B. POD 2 - C7200-ADVIPSERVICESK9-M Ver 15.2(4)S5
 * l. Loopback Address: **Loopback0 2.2.2.2 255.255.255.255**
 * m. IP VRF Forwarding: **LINK**
 
-(2) Protocol:
+**(2) Protocol:**
 * a. Protocol: **BGP200**
 * b. Router-id: **2.2.2.2**
 * c. Network: **1.1.1.0/24**
@@ -158,12 +158,12 @@ B. POD 2 - C7200-ADVIPSERVICESK9-M Ver 15.2(4)S5
 * j. Static Link: **1.1.1.5/32 192.168.1.1**
 * k. Static Link: **2.2.2.0/24 Null0**
 
-(3) VRF Details:
+**(3) VRF Details:**
 * a. IP VRF: **LINK**
 * b. rd: **2.2.2.2:1**
 * c. Static VRF: **LINK 1.1.1.5/32 192.168.1.1**
 
-(4) LAN Details:
+**(4) LAN Details:**
 * a. Interface Port: **Fa1/0**
 * b. Interface Address: **no ip address**
 * c. Sub-interface: **Fa1/0.30**
@@ -174,7 +174,7 @@ B. POD 2 - C7200-ADVIPSERVICESK9-M Ver 15.2(4)S5
 * h. Sub-interface IP address: **172.16.0.1/30**
 * i. Encapsulation: **dot1Q 40**
 
-(5) Tunnel Details:
+**(5) Tunnel Details:**
 * a. Tunnel: **Tunnel100**
 * b. Tunnel IP Address: **1.1.1.6/30**
 * c. Source IP Address: **172.16.0.1**
@@ -182,9 +182,9 @@ B. POD 2 - C7200-ADVIPSERVICESK9-M Ver 15.2(4)S5
 * e. IP VRF Forwarding: **LINK**
 * f. Tunnel VRF: **LINK**
 
-C. CoreService - C7200-ADVIPSERVICESK9-M Ver 15.2(4)S5
+**C. CoreService - C7200-ADVIPSERVICESK9-M Ver 15.2(4)S5**
 
-(1) Router Details (WAN):
+**(1) Router Details (WAN):**
 * a. Name: **CoreService**
 * b. Interface Port: **Fa0/0**
 * c. Ethernet Address: **no ip address**
@@ -193,17 +193,12 @@ C. CoreService - C7200-ADVIPSERVICESK9-M Ver 15.2(4)S5
 * f. Encapsulation: **dot1Q 30**
 * g. IP VRF Forwarding: **LINK**
 
-(2) Protocol:
+**(2) Protocol:**
 * a. Static Link Address: **1.1.1.6/32 - 192.168.1.2**
 
-(3) VRF Details:
+**(3) VRF Details:**
 * a. IP VRF: **LINK**
 * b. rd: **172.16.0.2:1**
 * c. Static VRF: **LINK 192.168.1.1/32 172.16.0.1**
 
 ![VRF - BGP Tunnel to Host](https://user-images.githubusercontent.com/51066040/58631405-c7c33b00-8325-11e9-995e-38e9bc3cddeb.png)
-
-
-
-
-
