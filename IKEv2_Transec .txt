@@ -1,8 +1,3 @@
-
-int tu200
-tunnel mode ipsec ipv4
-tunnel protection ipsec profile IPSEC
-
 Current configuration : 1885 bytes
 !
 ! Last configuration change at 06:12:50 UTC Wed Apr 27 2016
