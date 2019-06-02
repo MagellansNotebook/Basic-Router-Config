@@ -1,0 +1,134 @@
+
+int tu200
+tunnel mode ipsec ipv4
+tunnel protection ipsec profile IPSEC
+
+Current configuration : 1885 bytes
+!
+! Last configuration change at 06:12:50 UTC Wed Apr 27 2016
+!
+version 15.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+!
+hostname TRANSEC
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+ip cef
+!
+ip vrf TEST
+ rd 192.168.1.1:1
+!
+!
+!
+!
+!
+!
+no ipv6 cef
+!
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+crypto ikev2 proposal IKE-PROPOSAL
+ encryption aes-cbc-256
+ integrity sha512
+ group 19
+!
+crypto ikev2 policy IKE-POLICY
+ match fvrf TEST
+ proposal IKE-PROPOSAL
+!
+crypto ikev2 keyring IKE-KEYRING
+ peer 100
+  address 170.16.0.1
+  pre-shared-key TESTsecret123
+ !
+!
+!
+crypto ikev2 profile IKE-PROFILE
+ match fvrf TEST
+ match identity remote address 0.0.0.0
+ authentication remote pre-share
+ authentication local pre-share
+ keyring local IKE-KEYRING
+ lifetime 3600
+ dpd 10 3 periodic
+!
+!
+!
+crypto ipsec transform-set AES256-SHA256-TUNNEL esp-aes 256 esp-sha256-hmac
+ mode tunnel
+!
+crypto ipsec profile IPSEC
+ set transform-set AES256-SHA256-TUNNEL
+ set pfs group19
+ set ikev2-profile IKE-PROFILE
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 192.168.1.1 255.255.255.255
+!
+interface Tunnel100
+ ip address 192.168.1.9 255.255.255.254
+ tunnel source 170.16.1.6
+ tunnel mode ipsec ipv4
+ tunnel destination 170.16.0.1
+ tunnel vrf TEST
+ tunnel protection ipsec profile IPSEC
+!
+interface FastEthernet0/0
+ ip vrf forwarding TEST
+ ip address 170.16.1.6 255.255.255.252
+ duplex full
+!
+router bgp 100
+ bgp log-neighbor-changes
+ network 192.168.1.0
+ neighbor 192.168.1.8 remote-as 200
+ neighbor 192.168.1.8 update-source Tunnel100
+!
+ip forward-protocol nd
+!
+!
+no ip http server
+no ip http secure-server
+ip route 192.168.1.0 255.255.255.0 Null0
+ip route vrf TEST 170.16.0.1 255.255.255.255 170.16.1.5
+!
+!
+!
+!
+control-plane
+!
+!
+line con 0
+ logging synchronous
+ no domain-lookup
+ stopbits 1
+line aux 0
+ stopbits 1
+line vty 0 4
+ login
+!
+!
+end
