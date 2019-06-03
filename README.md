@@ -27,7 +27,7 @@
 * a. Protocol: **BGP 200 - multihop 2 - Loopback0**
 * b. Static Link Address: **1.1.1.1/32 192.168.1.1**
 
-![BGP (Point-to-Point)](https://user-images.githubusercontent.com/51066040/58451474-f50dbe80-8156-11e9-908f-2cfb7ec36535.png)
+![BGP (Point-to-Point)](https://user-images.githubusercontent.com/51066040/58770445-4eac3800-85f2-11e9-9af3-74d2c2aa9a91.png)
 
 ## VTI
 
