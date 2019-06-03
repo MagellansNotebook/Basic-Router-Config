@@ -1,10 +1,10 @@
-Current configuration : 1703 bytes
+Current configuration : 2382 bytes
 !
 version 15.2
 service timestamps debug datetime msec
 service timestamps log datetime msec
 !
-hostname ANCHOR
+hostname Hub
 !
 boot-start-marker
 boot-end-marker
@@ -12,6 +12,7 @@ boot-end-marker
 !
 !
 no aaa new-model
+no ip icmp rate-limit unreachable
 ip cef
 !
 !
@@ -19,6 +20,7 @@ ip cef
 !
 !
 !
+no ip domain lookup
 no ipv6 cef
 !
 !
@@ -32,7 +34,9 @@ multilink bundle-name authenticated
 !
 !
 !
+ip tcp synwait-time 5
 !
+crypto logging session
 !
 crypto ikev2 proposal IKE-PROPOSAL
  encryption aes-cbc-256
@@ -45,9 +49,8 @@ crypto ikev2 policy IKE-POLICY
 !
 crypto ikev2 keyring IKE-KEYRING
  peer 200
-  description TRANSEC
   address 170.16.1.6
-  pre-shared-key TESTsecret123
+  pre-shared-key Test123
  !
 !
 !
@@ -86,9 +89,47 @@ interface Tunnel200
  tunnel destination 170.16.1.6
  tunnel protection ipsec profile IPSEC
 !
-interface FastEthernet0/0
- ip address 170.16.1.5 255.255.255.252
+interface Ethernet0/0
+ no ip address
+ shutdown
+ duplex auto
+!
+interface GigabitEthernet0/0
+ description CONNECTION TO SPOKE
+ no ip address
+ shutdown
+ media-type gbic
+ speed 1000
  duplex full
+ negotiation auto
+!
+interface GigabitEthernet1/0
+ no ip address
+ shutdown
+ negotiation auto
+!
+interface FastEthernet2/0
+ ip address 170.16.1.5 255.255.255.252
+ speed auto
+ duplex auto
+!
+interface FastEthernet2/1
+ no ip address
+ shutdown
+ speed auto
+ duplex auto
+!
+interface FastEthernet3/0
+ no ip address
+ shutdown
+ speed auto
+ duplex auto
+!
+interface FastEthernet3/1
+ no ip address
+ shutdown
+ speed auto
+ duplex auto
 !
 router bgp 200
  bgp log-neighbor-changes
@@ -109,10 +150,14 @@ control-plane
 !
 !
 line con 0
+ exec-timeout 0 0
+ privilege level 15
  logging synchronous
- no domain-lookup
  stopbits 1
 line aux 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
  stopbits 1
 line vty 0 4
  login
