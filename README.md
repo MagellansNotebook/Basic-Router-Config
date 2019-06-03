@@ -15,7 +15,7 @@
 * a. Protocol: **BGP 100 - multihop 2 - Loopback0**
 * b. Static Link Address: **2.2.2.2/32 192.168.1.2**
 
-**B. POD 2 - C7200-ADVIPSERVICESK9-M Ver 15.2(4)S5**
+**B. POD 2 - C2691-ENTSERVICESK9-M, Version 12.4(13b)**
 
 **(1) Router Details (WAN):**
 * a. Name: **POD-2**
