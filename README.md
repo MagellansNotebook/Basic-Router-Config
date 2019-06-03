@@ -310,14 +310,14 @@
 * b. Match FVRF: **TEST**
 * c. Proposal: **IKE-PROPOSAL**
 
-**(6) Crypto IKEv2 Keyring:**
+**(7) Crypto IKEv2 Keyring:**
 * a. Name: **IKE-KEYRING**
 * b. Peer: **200**
 * c. Description: **TRANSEC**
 * d. Address: **170.16.0.1**
 * e. Pre-shared-key: **TEST123**
 
-**(7) Crypto IKEv2 Profile:**
+**(8) Crypto IKEv2 Profile:**
 * a. Name: **IKE-PROFILE**
 * b. Match FVRF: **TEST**
 * c. Match identity remote address: **0.0.0.0**
@@ -327,13 +327,13 @@
 * g. Lifetime: **3600**
 * h. DPD: **10 3 periodic**
 
-**(8) Crypto IPSEC Transfrom-set:**
+**(9) Crypto IPSEC Transfrom-set:**
 * a. Name: **AES256-SHA256-TUNNEL**
 * b. AES Encryption: **esp-aes 256**
 * c. ESP Encryption: **esp-sha256-hmac**
 * d. Mode: **tunnel**
 
-**(9) Crypto IPsec Profile:**
+**(10) Crypto IPsec Profile:**
 * a. Name: **IPSEC**
 * b. Set Transform-set: **AES256-SHA256-TUNNEL**
 * c. Set PFS: **group19**
