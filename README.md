@@ -209,7 +209,7 @@
 
 **(1) Router Details (WAN)**
 * a. Name: **Hub**
-* b. Interface Port: **Fa0/0**
+* b. Interface Port: **Fa2/0**
 * c. Fast-Ethernet Address: **170.16.1.5/30**
 * d. Looback Address: **170.16.0.1/32**
 
@@ -244,7 +244,7 @@
 * b. Peer: **200**
 * c. Description: **TRANSEC**
 * d. Address: **170.16.1.6**
-* e. Pre-shared-key: **TESTsecret123**
+* e. Pre-shared-key: **TEST123**
 
 **(7) Crypto IKEv2 Profile:**
 * a. Name: **IKE-PROFILE**
@@ -272,7 +272,7 @@
 
 **(1) Router Details (WAN)**
 * a. Name: **Spoke**
-* b. Interface Port: **Fa0/0**
+* b. Interface Port: **Fa2/0**
 * c. Fast-Ethernet Address: **170.16.1.6/30**
 * d. IP VRF Forwarding: **TEST**
 * e. Looback Address: **192.168.1.1/32**
@@ -307,19 +307,19 @@
 
 **(6) Crypto IKEv2 Policy:**
 * a. Name: **IKE-POLICY**
-* b. Match address local: **170.16.0.1**
+* b. Match FVRF: **TEST**
 * c. Proposal: **IKE-PROPOSAL**
 
 **(6) Crypto IKEv2 Keyring:**
 * a. Name: **IKE-KEYRING**
 * b. Peer: **200**
 * c. Description: **TRANSEC**
-* d. Address: **170.16.1.6**
-* e. Pre-shared-key: **TESTsecret123**
+* d. Address: **170.16.0.1**
+* e. Pre-shared-key: **TEST123**
 
 **(7) Crypto IKEv2 Profile:**
 * a. Name: **IKE-PROFILE**
-* b. Match address local: **170.16.0.1**
+* b. Match FVRF: **TEST**
 * c. Match identity remote address: **0.0.0.0**
 * d. Authentication remote: **pre-share**
 * e. Authentication local: **pre-share**
