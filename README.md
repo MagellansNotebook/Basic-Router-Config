@@ -3,7 +3,7 @@
 
 ## BGP
 
-**A. POD 1 - C7200-ADVIPSERVICESK9-M Ver 15.2(4)S5**
+**A. POD 1 - C2691-ENTSERVICESK9-M, Version 12.4(13b)**
 
 **(1) Router Details (WAN):**
 * a. Name: **POD-1**
