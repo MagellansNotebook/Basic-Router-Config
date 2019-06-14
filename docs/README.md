@@ -1,2 +1,2 @@
 # Router
-[About](about.md)
+[About](https://magellansnotebook.github.io/Basic-Router-Configuration/about.html)
