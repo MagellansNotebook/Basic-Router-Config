@@ -1,2 +1,2 @@
 # Router
-[About](docs/about.md)
+[About](about.md)
