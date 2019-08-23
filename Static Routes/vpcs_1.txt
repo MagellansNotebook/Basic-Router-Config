@@ -1,0 +1,13 @@
+PC-1> ip 172.16.32.10/24 172.16.32.1
+Checking for duplicate address...
+PC1 : 172.16.32.10 255.255.255.0 gateway 172.16.32.1
+
+PC-1> show ip
+NAME        : PC-1[1]
+IP/MASK     : 172.16.32.10/24
+GATEWAY     : 255.255.255.0
+DNS         :
+MAC         : 00:50:79:66:68:00
+LPORT       : 10006
+RHOST:PORT  : 127.0.0.1:10007
+MTU:        : 1500
