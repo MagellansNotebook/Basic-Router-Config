@@ -12,3 +12,11 @@ username admin privilege 15
 line vty 0 4
 login local
 transport input ssh
+
+line aux 0 
+no privilege level 15
+login local
+
+line con 0
+no privilege level 15
+login local
