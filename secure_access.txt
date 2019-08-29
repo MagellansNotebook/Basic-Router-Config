@@ -15,19 +15,21 @@ crypto key generate rsa
 > How many bits in the modolus: 1024
 
 enable secret <enable-secret-password> 
-username <username> privilege 15 secret <unit password> 
+username <username> privilege 15 secret <password> 
 
 line con 0  
 session-timeout 30  
 exec-timeout 30 0  
 absolute-timeout 60  
-logging synchronous  
+logging synchronous
+no privilege level 15
 login local 
 
 line aux 0  
 no exec  
 transport input none  
-transport output none  
+transport output none 
+no privilege level 15
 exec-timeout 0 1 
 
 line vty 0 4  
@@ -37,4 +39,5 @@ absolute-timeout 60
 logging synchronous  
 transport input ssh  
 transport output ssh  
+no privilege level 15
 login local
