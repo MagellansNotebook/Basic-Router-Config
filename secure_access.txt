@@ -1,0 +1,11 @@
+> Remove current configuration 
+
+write erase 
+reload 
+
+> Create a hostname
+
+hostname <hostname> 
+
+> RSA key generation
+
