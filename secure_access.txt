@@ -9,3 +9,32 @@ hostname <hostname>
 
 > RSA key generation
 
+ip domain-name domain_name.com
+crypto key generate rsa
+
+> How many bits in the modolus: 1024
+
+enable secret <enable-secret-password> 
+username <username> privilege 15 secret <unit password> 
+
+line con 0  
+session-timeout 30  
+exec-timeout 30 0  
+absolute-timeout 60  
+logging synchronous  
+login local 
+
+line aux 0  
+no exec  
+transport input none  
+transport output none  
+exec-timeout 0 1 
+
+line vty 0 4  
+session-timeout 30  
+exec-timeout 30 0  
+absolute-timeout 60  
+logging synchronous  
+transport input ssh  
+transport output ssh  
+login local
