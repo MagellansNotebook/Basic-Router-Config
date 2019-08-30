@@ -14,7 +14,7 @@ crypto key generate rsa
 
 > How many bits in the modolus: 1024
 
-enable secret <enable-secret-password> 
+enable secret <password> 
 username <username> privilege 15 secret <password> 
 
 line con 0  
