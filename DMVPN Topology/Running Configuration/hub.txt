@@ -113,7 +113,7 @@ interface GigabitEthernet0/0
  negotiation auto
 !
 interface GigabitEthernet0/0.901
- description TO-NAVY-TMC-CONNECTION
+ description TO-SPOKE-CONNECTION
  encapsulation dot1Q 901
  ip address 172.16.32.1 255.255.255.248
 !
@@ -162,6 +162,7 @@ ip forward-protocol nd
 no ip http server
 no ip http secure-server
 ip route 0.0.0.0 0.0.0.0 192.168.137.1
+ !note: Interface Address of the device providing Internet Connection
 !
 ip access-list extended NET-ALLOWED-INTERNET-ACCESS
  permit ip 10.1.0.0 0.0.0.255 any
