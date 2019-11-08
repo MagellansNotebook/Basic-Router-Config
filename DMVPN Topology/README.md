@@ -8,6 +8,8 @@ The topology above uses the Hub and Spoke concept. Spoke One and Two have a secu
 
 Internet traffic is NAT'ted to the network address of the modem device.
 
+The FIREWALL in this topology is only used for simulation. It is not filtering any packets and it is only passing the packets through its interfaces.
+
 All outbound traffic to the internet is routed to the Firewall LAN before it goes out to the ISP connection. However, local traffic uses default routes to reach its destination. Only the Firewall WAN is NAT'ted to connect to the outside network.
 
 Also, all inbound traffic from the internet are directed to the Firewall WAN before it enters the internal network.
